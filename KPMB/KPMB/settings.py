@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','v3%$s6pbry1ej!hqvrcl)mnqp%ym96znpg@84#8&nqamu!5i@#')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','lg!bwa8=@*==*1dpjcp*5(x6z3ox19z(n*$40!jlk^12us_dta')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG','') !='False'
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.'
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'KPMB.urls'
@@ -119,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT=BASE_DIR / 'staticfiles'
+STATIC_ROOT=BASE_DIR/'staticfiles'
 
 STATIC_URL = '/static/'
 
@@ -127,5 +127,11 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-db_from_env = dj_database_url.config(conn_max_age=500)
+
+
+db_from_env=dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+
+
+
